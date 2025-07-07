@@ -21,7 +21,7 @@ export default function AddCourse() {
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
             <div className=" p-6 rounded-xl shadow-lg w-full max-w-xl">
-                <h1 className="text-xl font-bold text-gray-800 mb-6 text-center">➕ Add a New Course</h1>
+                <h1 className="text-xl font-bold text-gray-800 mb-6 text-center">Edit Topic</h1>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>

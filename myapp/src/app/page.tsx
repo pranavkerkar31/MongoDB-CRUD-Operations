@@ -22,7 +22,7 @@ export default function Home() {
               <div className="text-xs opacity-60">Remaining Reason</div>
             </div>
             <div className="flex gap-2">
-              <button className="btn btn-sm btn-ghost text-blue-600">Edit</button>
+              <Link href="/edittopic" className="btn btn-sm btn-ghost text-blue-600">Edit</Link>
               <button className="btn btn-sm btn-ghost text-red-600">Delete</button>
             </div>
           </li>
@@ -33,7 +33,7 @@ export default function Home() {
               <div className="text-xs opacity-60">Bears of a fever</div>
             </div>
             <div className="flex gap-2">
-              <button className="btn btn-sm btn-ghost text-blue-600">Edit</button>
+        <Link href="/edittopic" className="btn btn-sm btn-ghost text-blue-600">Edit</Link>
               <button className="btn btn-sm btn-ghost text-red-600">Delete</button>
             </div>
           </li>
@@ -45,7 +45,7 @@ export default function Home() {
               <div className="text-xs opacity-60">Cappuccino</div>
             </div>
             <div className="flex gap-2">
-              <button className="btn btn-sm btn-ghost text-blue-600">Edit</button>
+              <Link href="/edittopic" className="btn btn-sm btn-ghost text-blue-600">Edit</Link>
               <button className="btn btn-sm btn-ghost text-red-600">Delete</button>
             </div>
           </li>
