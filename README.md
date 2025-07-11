@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/next.svg" width="200" alt="Next.js Logo" />
+ <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg" width="200" alt="Next.js Logo" />
   <br />
   <img src="https://webassets.mongodb.com/_com_assets/cms/mongodb_logo1-76twgcu2dm.png" width="180" alt="MongoDB Logo" />
 </p>
