@@ -1,32 +1,40 @@
-# MongoDB CRUD Operations
-
 <p align="center">
-  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" />
-  <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" />
-  <img src="https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongoose&logoColor=white" />
+  <img src="https://raw.githubusercontent.com/vercel/next.js/canary/examples/blog-starter/public/assets/logo.svg" width="200" alt="Next.js Logo" />
+  <br />
+  <img src="https://webassets.mongodb.com/_com_assets/cms/mongodb_logo1-76twgcu2dm.png" width="180" alt="MongoDB Logo" />
 </p>
 
-A minimal full-stack CRUD application using **Next.js App Router** and **MongoDB** with **Mongoose**.  
-Ideal for beginners learning to:
+# MongoDB-CRUD-Operations
 
-- Connect MongoDB to a frontend framework  
-- Handle Create, Read, Update, Delete operations  
-- Structure scalable API endpoints  
-- Practice clean server-side logic in modern JavaScript
+A simple **CRUD** application using **Next.js** API routes and **MongoDB**. This project demonstrates how to use Mongoose to handle database operations like **Create**, **Read**, **Update**, and **Delete**. It also includes a minimal UI to test backend logic and understand endpoint structure.
 
 ---
 
-## 🛠️ Getting Started
+✅ **Ideal for Beginners**  
+✅ Learn how to connect MongoDB with Next.js  
+✅ Understand RESTful API patterns in a modern JavaScript framework  
+✅ Explore clean folder structure and component-based design  
 
-1. Install dependencies
+---
 
+## 🚀 Project Features
+
+- 🧩 Add, edit, delete, and view topics
+- 🧠 Server-side and client-side logic separation
+- 🌐 API routing using Next.js App Router
+- 🧪 MongoDB with Mongoose for database management
+- 💅 Styled using Tailwind CSS
+
+---
+
+## ⚙️ Installation & Setup
+
+cd MongoDB-CRUD-Operations
+ 1. Install Dependencies
 npm install
 
+2. Install Required Packages
+npm install mongoose
 
-
-MONGODB_URI=your_mongodb_connection_string
-Replace with your MongoDB Atlas URI.
-
-🚀 Run the development server
-
+3. Run the Development Server
 npm run dev
