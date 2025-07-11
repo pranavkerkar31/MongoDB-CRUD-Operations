@@ -1,11 +1,47 @@
 "use client";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
+interface Topic {
+  _id: string;
+  title: string;
+  description: string;
+}
+
 export default function Home() {
+  const [topics, setTopics] = useState<Topic[]>([]);
+
+  const fetchTopics = async () => {
+    try {
+      const res = await fetch("/api/topics", { cache: "no-store" });
+      const data = await res.json();
+      setTopics(data);
+    } catch (error) {
+      console.error("Error fetching topics:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchTopics();
+  }, []);
+
+  const handleDelete = async (id: string) => {
+    const confirmed = window.confirm("Are you sure you want to delete this topic?");
+    if (!confirmed) return;
+
+    try {
+      await fetch(`/api/topics?id=${id}`, {
+        method: "DELETE",
+      });
+      fetchTopics(); 
+    } catch (error) {
+      console.error("Failed to delete:", error);
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
       <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-xl">
-        {/* Header and Add Course Button */}
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-xl font-bold text-gray-800">📘 Top Courses</h1>
           <Link
@@ -16,49 +52,29 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* Courses List */}
-        <ul className="list bg-base-100 rounded-box shadow-sm space-y-4">
-          {/* Course 1 */}
-          <li className="flex items-center justify-between p-4 rounded-md border">
-            <div>
-              <div className="font-medium">Dio Lupa</div>
-              <div className="text-xs opacity-60">Remaining Reason</div>
-            </div>
-            <div className="flex gap-2">
-              <Link href="/edittopic" className="btn btn-sm btn-ghost text-blue-600">
-                Edit
-              </Link>
-              <button className="btn btn-sm btn-ghost text-red-600">Delete</button>
-            </div>
-          </li>
-
-          {/* Course 2 */}
-          <li className="flex items-center justify-between p-4 rounded-md border">
-            <div>
-              <div className="font-medium">Ellie Beilish</div>
-              <div className="text-xs opacity-60">Bears of a fever</div>
-            </div>
-            <div className="flex gap-2">
-              <Link href="/edittopic" className="btn btn-sm btn-ghost text-blue-600">
-                Edit
-              </Link>
-              <button className="btn btn-sm btn-ghost text-red-600">Delete</button>
-            </div>
-          </li>
-
-          {/* Course 3 */}
-          <li className="flex items-center justify-between p-4 rounded-md border">
-            <div>
-              <div className="font-medium">Sabrino Gardener</div>
-              <div className="text-xs opacity-60">Cappuccino</div>
-            </div>
-            <div className="flex gap-2">
-              <Link href="/edittopic" className="btn btn-sm btn-ghost text-blue-600">
-                Edit
-              </Link>
-              <button className="btn btn-sm btn-ghost text-red-600">Delete</button>
-            </div>
-          </li>
+        <ul className="space-y-4">
+          {topics.map((t) => (
+            <li key={t._id} className="flex items-center justify-between p-4 border rounded-md">
+              <div>
+                <div className="font-medium text-black">{t.title}</div>
+                <div className="text-xs font-medium text-black">{t.description}</div>
+              </div>
+              <div className="flex gap-2">
+                <Link
+                  href={`/edittopic/${t._id}`}
+                  className="btn btn-sm btn-ghost text-blue-600"
+                >
+                  Edit
+                </Link>
+                <button
+                  onClick={() => handleDelete(t._id)}
+                  className="btn btn-sm btn-ghost text-red-600"
+                >
+                  Delete
+                </button>
+              </div>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
